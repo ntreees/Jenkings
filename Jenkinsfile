@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'M3_5_2') {
-                    sh 'mvn clean install -Dmaven.test.skip=true'
+                    sh 'mvn -X clean install -Dmaven.test.skip=true'
                 }
             }
         }
