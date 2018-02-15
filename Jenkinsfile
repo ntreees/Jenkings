@@ -6,27 +6,11 @@ pipeline {
 
             steps {
                 withMaven(maven : 'M3_5_2') {
-                    sh 'mvn clean compile'
+                    sh 'mvn clean install -Dmaven.test.skip=true'
                 }
             }
         }
 
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'M3_5_2') {
-                    sh 'mvn test'
-                }
-            }
-        }
-
-
-        stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'M3_5_2') {
-                    sh 'mvn deploy'
-                }
-            }
-        }
+       
     }
 }
